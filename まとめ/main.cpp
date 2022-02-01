@@ -4,7 +4,10 @@ using namespace std;
 
 int main()
 {
-	/*//pair - 2つ組のみ
+	/*
+	//[データコンテナ]
+
+	//pair - 2つ組のみ
 	pair<int, int> p(0, 0);
 	p.first; //>>0
 	p.second; //>>0
@@ -97,6 +100,38 @@ int main()
 	//unordered_set
 
 	//lower_bound / upper_bound
+
+	//[アイデア]
+	priority_queueを使えばソートがし易いのではないか．
 	*/
+
+
+	//[ビットセット]
+
+	//bitset  //ビットの配列
+	bitset<5> bit1;
+	bitset<5> bit2;
+
+	bit1.set(0, 1);
+	bit2.set(0, 1);
+	bit1.set(2, 1);
+	cout << "bit1: " << bit1 << endl;
+	cout << "bit2: " << bit2 << endl;
+	cout << "bit1 & bit2: " << (bit1 & bit2) << endl;
+	cout << "bit1 | bit2: " << (bit1 | bit2) << endl;
+	cout << "bit1 ^ bit2: " << (bit1 ^ bit2) << endl;
+	cout << "~bit1: " << (~bit1) << endl;
+	cout << "~bit2: " << (~bit2) << endl;
+	cout << "bit1 << 1:" << (bit1 << 1) << endl;
+	cout << "bit2 >> 1:" << (bit2 >> 1) << endl;
+
+	cout << "1 << 3: " << (1 << 3) << endl; //2^3
+
+	//ビット全探索・・・組み合わせの探索．
+	for (int i = 0; i < (1 << 5); i++)
+	{
+		bitset<5> bit(i);
+	}
+
 	return 0;
 }
