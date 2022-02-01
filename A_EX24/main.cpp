@@ -38,35 +38,31 @@ public:
 
 	void shift(int diff_second)
 	{
-		if (diff_second >= 0)
-		{
-			hour += diff_second / 3600;
-			diff_second = diff_second % 3600;
-			minute += diff_second / 60;
-			diff_second = diff_second % 60;
-			second = diff_second;
+		int sec = second +
+			minute * 60 +
+			hour * 3600;
 
-			second = (second + diff_second) % 60;
-			minute = (second + diff_second) % 60;
-			diff_second = diff_second % 60;
-			hour += minute / 60;
+		if (sec + diff_second < 0)
+		{
+			sec += diff_second;
+			sec = (3600 * 24) + sec;
+			second = sec % 60;
+			sec -= second;
+			minute = (sec / 60) % 60;
+			sec -= minute * 60;
+			hour = (sec / 3600) % 24;
+
 		}
 		else
 		{
-			long long sec =
-				hour * 3600 +
-				minute * 60 +
-				second;
-			if (diff_second - sec < 0)
-				sec = 86400 + diff_second;
-			else
-				sec -= diff_second;
-			hour = sec / 3600;
-			sec = sec % 3600;
-			minute = sec / 60;
-			sec = sec % 60;
-			second = sec;
+			sec += diff_second;
+			second = sec % 60;
+			sec -= second;
+			minute = (sec / 60) % 60;
+			sec -= minute;
+			hour = (sec / 3600) % 24;
 		}
+		
 	}
 };
 
