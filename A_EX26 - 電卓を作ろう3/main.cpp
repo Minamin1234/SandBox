@@ -79,22 +79,22 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		cin >> Cmd;
+	cin >> Cmd;
 
-		if (Cmd == "int")
-		{
+	if (Cmd == "int")
+	{
 			INT();
-		}
-		else if (Cmd == "print_int")
-		{
+	}
+	else if (Cmd == "print_int")
+	{
 			PrintInt();
-		}
-		else if (Cmd == "vec")
-		{
+	}
+	else if (Cmd == "vec")
+	{
 			Vec();
-		}
-		else if (Cmd == "print_vec")
-		{
+	}
+	else if (Cmd == "print_vec")
+	{
 			PrintVec();
 		}
 	}
@@ -300,7 +300,7 @@ void PrintVec()
 
 	while (true)
 	{
-		
+
 		cin >> Op;
 
 		if (Op != ";")
