@@ -41,7 +41,7 @@ vector<int> GetVec();
 int DecodeExp();
 
 //入力された配列を解読し取得します．
-vector<int> DecodeVExp();
+//vector<int> DecodeVExp();
 
 //指定した文字列が数値に変換可能かどうか確認し，
 //可能であれば指定した変数に代入します．
@@ -77,23 +77,26 @@ int main()
 
 	cin >> N;
 
+	for (int i = 0; i < N; i++)
+	{
 	cin >> Cmd;
 
 	if (Cmd == "int")
 	{
-
+			INT();
 	}
 	else if (Cmd == "print_int")
 	{
-
+			PrintInt();
 	}
 	else if (Cmd == "vec")
 	{
-
+			Vec();
 	}
 	else if (Cmd == "print_vec")
 	{
-
+			PrintVec();
+		}
 	}
 	
 	return 0;
@@ -188,7 +191,7 @@ int DecodeExp()
 	return val;
 }
 
-vector<int> DecodeVExp()
+/*vector<int> DecodeVExp()
 {
 	string Begin="[", Lv, Op, Rv, cm, End = "]";
 	vector<int> v;
@@ -208,7 +211,7 @@ vector<int> DecodeVExp()
 
 		}
 	}
-}
+}*/
 
 int SCheck(string val, int& x)
 {
@@ -290,5 +293,34 @@ void Vec()
 
 void PrintVec()
 {
+	string Op;
+	vector<int> result;
 
+	result = GetVec();
+
+	while (true)
+	{
+
+		cin >> Op;
+
+		if (Op != ";")
+		{
+			if (Op == "+")
+			{
+				vector<int> v2 = GetVec();
+				for (int i = 0; i < result.size(); i++)
+					result.at(i) += v2.at(i);
+			}
+			else if (Op == "-")
+			{
+				vector<int> v2 = GetVec();
+				for (int i = 0; i < result.size(); i++)
+					result.at(i) -= v2.at(i);
+			}
+		}
+		else
+			break;
+	}
+
+	Print(result);
 }
